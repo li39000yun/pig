@@ -1,0 +1,25 @@
+server:
+  port: 5555
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: tz-gateway
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        server-addr: tz-nacos:8848
+        ext-config:
+          -
+            data-id: application.yml
+            group: tz4cloud
+            refresh: true
+          -
+            data-id: tz-gateway.yml
+            group: tz4cloud
+            refresh: true
+      # 注册中心
+      discovery:
+        server-addr: tz-nacos:8848
