@@ -32,5 +32,6 @@
 		<module>pig-codegen</module>
 		<module>pig-monitor</module>
 		<module>pig-zipkin</module>
-	</modules>
+        <module>lyq-demo</module>
+    </modules>
 </project>
