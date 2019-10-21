@@ -23,6 +23,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * 货物表
@@ -60,7 +61,7 @@ private static final long serialVersionUID = 1L;
     /**
    * 购买日期
    */
-    private LocalDateTime buyTime;
+    private Date buyTime;
     /**
    * 创建者
    */
