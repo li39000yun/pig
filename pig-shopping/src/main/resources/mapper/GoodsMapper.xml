@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.pig4cloud.pig.goods.mapper.GoodsMapper">
+
+  <resultMap id="goodsMap" type="com.pig4cloud.pig.goods.entity.Goods">
+                  <id property="id" column="id"/>
+                        <result property="typeOneCode" column="type_one_code"/>
+                        <result property="typeOneName" column="type_one_name"/>
+                        <result property="typeTwoCode" column="type_two_code"/>
+                        <result property="typeTwoName" column="type_two_name"/>
+                        <result property="goodsCode" column="goods_code"/>
+                        <result property="goodsName" column="goods_name"/>
+                        <result property="price" column="price"/>
+                        <result property="goodsNum" column="goods_num"/>
+                        <result property="orders" column="orders"/>
+                        <result property="goodsStock" column="goods_stock"/>
+                        <result property="salesVolume" column="sales_volume"/>
+                        <result property="auditStatus" column="audit_status"/>
+                        <result property="auditStatusName" column="audit_status_name"/>
+                        <result property="createTime" column="create_time"/>
+                        <result property="createUserId" column="create_user_id"/>
+                        <result property="createUserName" column="create_user_name"/>
+                        <result property="updateTime" column="update_time"/>
+                        <result property="updateUserId" column="update_user_id"/>
+                        <result property="updateUserName" column="update_user_name"/>
+                        <result property="deleted" column="deleted"/>
+            </resultMap>
+
+  <!--goods简单分页查询-->
+  <select id="getGoodsPage" resultMap="goodsMap">
+    SELECT
+                  id,
+                        type_one_code,
+                        type_one_name,
+                        type_two_code,
+                        type_two_name,
+                        goods_code,
+                        goods_name,
+                        price,
+                        goods_num,
+                        orders,
+                        goods_stock,
+                        sales_volume,
+                        audit_status,
+                        audit_status_name,
+                        create_time,
+                        create_user_id,
+                        create_user_name,
+                        update_time,
+                        update_user_id,
+                        update_user_name,
+                        deleted
+              FROM goods
+    <where>
+              <if test="goods.id != null and goods.id.trim() != ''">
+          AND id = #{goods.id}
+        </if>
+              <if test="goods.typeOneCode != null and goods.typeOneCode.trim() != ''">
+          AND type_one_code = #{goods.typeOneCode}
+        </if>
+              <if test="goods.typeOneName != null and goods.typeOneName.trim() != ''">
+          AND type_one_name = #{goods.typeOneName}
+        </if>
+              <if test="goods.typeTwoCode != null and goods.typeTwoCode.trim() != ''">
+          AND type_two_code = #{goods.typeTwoCode}
+        </if>
+              <if test="goods.typeTwoName != null and goods.typeTwoName.trim() != ''">
+          AND type_two_name = #{goods.typeTwoName}
+        </if>
+              <if test="goods.goodsCode != null and goods.goodsCode.trim() != ''">
+          AND goods_code = #{goods.goodsCode}
+        </if>
+              <if test="goods.goodsName != null and goods.goodsName.trim() != ''">
+          AND goods_name = #{goods.goodsName}
+        </if>
+              <if test="goods.price != null and goods.price.trim() != ''">
+          AND price = #{goods.price}
+        </if>
+              <if test="goods.goodsNum != null and goods.goodsNum.trim() != ''">
+          AND goods_num = #{goods.goodsNum}
+        </if>
+              <if test="goods.orders != null and goods.orders.trim() != ''">
+          AND orders = #{goods.orders}
+        </if>
+              <if test="goods.goodsStock != null and goods.goodsStock.trim() != ''">
+          AND goods_stock = #{goods.goodsStock}
+        </if>
+              <if test="goods.salesVolume != null and goods.salesVolume.trim() != ''">
+          AND sales_volume = #{goods.salesVolume}
+        </if>
+              <if test="goods.auditStatus != null and goods.auditStatus.trim() != ''">
+          AND audit_status = #{goods.auditStatus}
+        </if>
+              <if test="goods.auditStatusName != null and goods.auditStatusName.trim() != ''">
+          AND audit_status_name = #{goods.auditStatusName}
+        </if>
+              <if test="goods.createTime != null and goods.createTime.trim() != ''">
+          AND create_time = #{goods.createTime}
+        </if>
+              <if test="goods.createUserId != null and goods.createUserId.trim() != ''">
+          AND create_user_id = #{goods.createUserId}
+        </if>
+              <if test="goods.createUserName != null and goods.createUserName.trim() != ''">
+          AND create_user_name = #{goods.createUserName}
+        </if>
+              <if test="goods.updateTime != null and goods.updateTime.trim() != ''">
+          AND update_time = #{goods.updateTime}
+        </if>
+              <if test="goods.updateUserId != null and goods.updateUserId.trim() != ''">
+          AND update_user_id = #{goods.updateUserId}
+        </if>
+              <if test="goods.updateUserName != null and goods.updateUserName.trim() != ''">
+          AND update_user_name = #{goods.updateUserName}
+        </if>
+              <if test="goods.deleted != null and goods.deleted.trim() != ''">
+          AND deleted = #{goods.deleted}
+        </if>
+          </where>
+  </select>
+
+
+
+</mapper>
