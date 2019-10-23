@@ -22,8 +22,8 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * 货物表

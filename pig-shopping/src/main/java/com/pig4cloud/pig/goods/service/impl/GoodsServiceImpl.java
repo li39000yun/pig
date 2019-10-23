@@ -20,6 +20,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.pig4cloud.pig.goods.entity.Goods;
+import com.pig4cloud.pig.goods.mapper.GoodsMapper;
 import com.pig4cloud.pig.goods.service.GoodsService;
 import org.springframework.stereotype.Service;
 
