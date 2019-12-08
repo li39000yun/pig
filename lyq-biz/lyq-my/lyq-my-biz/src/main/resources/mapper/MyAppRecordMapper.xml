@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyq4cloud.lyq.my.mapper.MyAppRecordMapper">
+
+  <resultMap id="myAppRecordMap" type="com.lyq4cloud.lyq.my.entity.MyAppRecord">
+                  <id property="id" column="id"/>
+                        <result property="type" column="type"/>
+                        <result property="title" column="title"/>
+                        <result property="remark" column="remark"/>
+                        <result property="url" column="url"/>
+                        <result property="date" column="date"/>
+                        <result property="createBy" column="create_by"/>
+                        <result property="createTime" column="create_time"/>
+                        <result property="updateBy" column="update_by"/>
+                        <result property="updateTime" column="update_time"/>
+                        <result property="delFlag" column="del_flag"/>
+            </resultMap>
+
+  <!--myAppRecord简单分页查询-->
+  <select id="getMyAppRecordPage" resultMap="myAppRecordMap">
+    SELECT
+                  id,
+                        type,
+                        title,
+                        remark,
+                        url,
+                        date,
+                        create_by,
+                        create_time,
+                        update_by,
+                        update_time,
+                        del_flag
+              FROM my_app_record
+    <where>
+              <if test="myAppRecord.id != null and myAppRecord.id.trim() != ''">
+          AND id = #{myAppRecord.id}
+        </if>
+              <if test="myAppRecord.type != null and myAppRecord.type.trim() != ''">
+          AND type = #{myAppRecord.type}
+        </if>
+              <if test="myAppRecord.title != null and myAppRecord.title.trim() != ''">
+          AND title = #{myAppRecord.title}
+        </if>
+              <if test="myAppRecord.remark != null and myAppRecord.remark.trim() != ''">
+          AND remark = #{myAppRecord.remark}
+        </if>
+              <if test="myAppRecord.url != null and myAppRecord.url.trim() != ''">
+          AND url = #{myAppRecord.url}
+        </if>
+              <if test="myAppRecord.date != null and myAppRecord.date.trim() != ''">
+          AND date = #{myAppRecord.date}
+        </if>
+              <if test="myAppRecord.createBy != null and myAppRecord.createBy.trim() != ''">
+          AND create_by = #{myAppRecord.createBy}
+        </if>
+              <if test="myAppRecord.createTime != null and myAppRecord.createTime.trim() != ''">
+          AND create_time = #{myAppRecord.createTime}
+        </if>
+              <if test="myAppRecord.updateBy != null and myAppRecord.updateBy.trim() != ''">
+          AND update_by = #{myAppRecord.updateBy}
+        </if>
+              <if test="myAppRecord.updateTime != null and myAppRecord.updateTime.trim() != ''">
+          AND update_time = #{myAppRecord.updateTime}
+        </if>
+              <if test="myAppRecord.delFlag != null and myAppRecord.delFlag.trim() != ''">
+          AND del_flag = #{myAppRecord.delFlag}
+        </if>
+          </where>
+  </select>
+
+
+
+</mapper>

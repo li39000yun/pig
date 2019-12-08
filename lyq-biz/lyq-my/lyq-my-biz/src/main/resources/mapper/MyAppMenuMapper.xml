@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  ~
+  ~      Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~
+  ~  Redistribution and use in source and binary forms, with or without
+  ~  modification, are permitted provided that the following conditions are met:
+  ~
+  ~ Redistributions of source code must retain the above copyright notice,
+  ~  this list of conditions and the following disclaimer.
+  ~  Redistributions in binary form must reproduce the above copyright
+  ~  notice, this list of conditions and the following disclaimer in the
+  ~  documentation and/or other materials provided with the distribution.
+  ~  Neither the name of the pig4cloud.com developer nor the names of its
+  ~  contributors may be used to endorse or promote products derived from
+  ~  this software without specific prior written permission.
+  ~  Author: lengleng (wangiegie@gmail.com)
+  ~
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lyq4cloud.lyq.my.mapper.MyAppMenuMapper">
+
+  <resultMap id="myAppMenuMap" type="com.lyq4cloud.lyq.my.entity.MyAppMenu">
+                  <id property="id" column="id"/>
+                        <result property="type" column="type"/>
+                        <result property="name" column="name"/>
+                        <result property="icon" column="icon"/>
+                        <result property="remark" column="remark"/>
+                        <result property="url" column="url"/>
+                        <result property="createBy" column="create_by"/>
+                        <result property="createTime" column="create_time"/>
+                        <result property="updateBy" column="update_by"/>
+                        <result property="updateTime" column="update_time"/>
+                        <result property="delFlag" column="del_flag"/>
+            </resultMap>
+
+  <!--myAppMenu简单分页查询-->
+  <select id="getMyAppMenuPage" resultMap="myAppMenuMap">
+    SELECT
+                  id,
+                        type,
+                        name,
+                        icon,
+                        remark,
+                        url,
+                        create_by,
+                        create_time,
+                        update_by,
+                        update_time,
+                        del_flag
+              FROM my_app_menu
+    <where>
+              <if test="myAppMenu.id != null and myAppMenu.id.trim() != ''">
+          AND id = #{myAppMenu.id}
+        </if>
+              <if test="myAppMenu.type != null and myAppMenu.type.trim() != ''">
+          AND type = #{myAppMenu.type}
+        </if>
+              <if test="myAppMenu.name != null and myAppMenu.name.trim() != ''">
+          AND name = #{myAppMenu.name}
+        </if>
+              <if test="myAppMenu.icon != null and myAppMenu.icon.trim() != ''">
+          AND icon = #{myAppMenu.icon}
+        </if>
+              <if test="myAppMenu.remark != null and myAppMenu.remark.trim() != ''">
+          AND remark = #{myAppMenu.remark}
+        </if>
+              <if test="myAppMenu.url != null and myAppMenu.url.trim() != ''">
+          AND url = #{myAppMenu.url}
+        </if>
+              <if test="myAppMenu.createBy != null and myAppMenu.createBy.trim() != ''">
+          AND create_by = #{myAppMenu.createBy}
+        </if>
+              <if test="myAppMenu.createTime != null and myAppMenu.createTime.trim() != ''">
+          AND create_time = #{myAppMenu.createTime}
+        </if>
+              <if test="myAppMenu.updateBy != null and myAppMenu.updateBy.trim() != ''">
+          AND update_by = #{myAppMenu.updateBy}
+        </if>
+              <if test="myAppMenu.updateTime != null and myAppMenu.updateTime.trim() != ''">
+          AND update_time = #{myAppMenu.updateTime}
+        </if>
+              <if test="myAppMenu.delFlag != null and myAppMenu.delFlag.trim() != ''">
+          AND del_flag = #{myAppMenu.delFlag}
+        </if>
+          </where>
+  </select>
+
+
+
+</mapper>
